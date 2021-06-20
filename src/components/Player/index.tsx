@@ -1,20 +1,43 @@
-import format from 'date-fns/format';
-import ptBR from 'date-fns/locale/pt-BR';
-
 import styles from './styles.module.scss';
 
-export function Header() {
-  const currentDate = format(new Date(), 'EEEEEE, d MMMM', {
-    locale: ptBR,
-  });
-
+export function Player() {
   return (
-    <header className={styles.headerContainer}>
-      <img src="/logo.svg" alt="Podcastr" />
+    <div className={styles.playerContainer}>
+      <header>
+        <img src="/playing.svg" alt="Tocando agora" />
+        <strong>Tocando agora</strong>
+      </header>
 
-      <p>O memlhor para você ouvir, sempre</p>
+      <div className={styles.emptyPlayer}>
+        <strong>Selecione um podcast para ouvir</strong>
+      </div>
+      <footer className={styles.empty}>
+        <div className={styles.progress}>
+          <span>00:00</span>
+          <div className={styles.slider}>
+            <div className={styles.emptySlider} />
+          </div>
+          <span>00:00</span>
+        </div>
 
-      <span>{currentDate}</span>
-    </header>
+        <div className={styles.buttons}>
+          <button>
+            <img src="/shuffle.svg" alt="Embaralhar" />
+          </button>
+          <button>
+            <img src="/play-previous.svg" alt="Embaralhar" />
+          </button>
+          <button className={styles.playButton}>
+            <img src="/play.svg" alt="Embaralhar" />
+          </button>
+          <button>
+            <img src="/play-next.svg" alt="Embaralhar" />
+          </button>
+          <button>
+            <img src="/repeat.svg" alt="Embaralhar" />
+          </button>
+        </div>
+      </footer>
+    </div>
   );
 }
